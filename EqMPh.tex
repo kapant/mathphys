@@ -150,7 +150,16 @@
 решений.
     
     \section{Общее решение уравнения Лапласа в полярных координатах.}
-    
-    
+    Уравнение Лапласа: $\Delta u = 0 \Leftrightarrow \frac{1}{r} \frac{\partial}{\partial r}(r \frac{\partial u}{\partial r}) + \frac{1}{r^2} \frac{\partial^2 u}{\partial \phi^2} = 0$ \textit{(оператор Лапласа для полярных координат)}
+    Функция $u(r,\phi)$ ищется в виде: $\sum\limits_{n=0}^{\infty} R_n(r)\Phi_n(\phi)$
+    Подставим $R(r)$ и $\Phi(\phi)$ в оператор Лапсласа для полярных координат:
+    $$
+    \frac{1}{r} \frac{d}{dr}(r \frac{dR}{dr})\Phi + \frac{1}{r^2} R \frac{d^2 \Phi}{d \phi^2} = 0 \; |:\Phi \; \Rightarrow \;
+    \frac{r(rR')'}{R} + \frac{\Phi''}{\Phi} = 0
+    $$
+    Решаем два уравнения для $R_n(r)$ и $\Phi_n(\phi)$. Не забыть про $n = 0$. В итоге получим общее решение для $u(r, \phi)$:
+    $$
+    u(r, \phi) = a_0 + b_0 \, ln\:r + \sum\limits_{n=1}^{\infty}r^n(a_n \, cos \: n \phi)
+    $$
     
 \end{document}
