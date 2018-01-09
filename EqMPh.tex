@@ -1,0 +1,81 @@
+\documentclass[a6paper]{article}
+\usepackage[margin=3mm]{geometry}
+\usepackage[utf8x]{inputenc}
+\usepackage{mathtext}
+\usepackage[T1]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{ucs}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+
+
+\title{Билет 10}
+\date{}
+
+\begin{document}
+    \maketitle
+    \section{Принцип максимума для уравнения теплопроводности. Теоремы единственности и устойчивости для смешанной задачи для уравнения теплопроводности.}
+    \subsection{Принцип максимума для уравнения теплопроводности.}
+    
+    Рассмотрим множество $Q_T = \{(x, t) : (0; l) × (0; T]\}$. Обозначим $Г = Q_T$ $\overline{Q_T}$.
+    \par
+    \textbf{Теорема.} \textit{(принцип максимума)} Пусть $u(x,t) \in C[\overline{Q_T}], u_t, u_{xx} \in C[Q_t]$ и $u_t = a^2u_{xx}$. Тогда
+    $$
+    \underset{\overline{Q_T}}{max} \; u(x,t) = \underset{Г}{max} \; u(x,t)
+    $$
+    $$
+    \underset{\overline{Q_T}}{min} \; u(x,t) = \underset{Г}{min} \; u(x,t)
+    $$
+    
+    \textit{Доказательство.} Сначала докажем утверждение для $max$. Предположим противное: пусть $\underset{Г}{max} \; u(x,t) = M$ и $\exists$ точка $(x_0,t_0) \in Q_T$ такая, что $u(x_0,t_0)= M + \varepsilon, \; \varepsilon > 0$.
+    \par
+    Тогда введем $v(x,t)$:
+    \begin{equation}
+        \label{eq1}
+        v(x,t) = u(x,t) - \frac{\varepsilon}{2T}(t - t_0)
+    \end{equation}
+    
+    Очевидно, что $v(x_0,t_0) = u(x_0,t_0) = M + \varepsilon$. Так как $|\frac{\varepsilon}{2T}(t - t_0)| \leq \frac{\varepsilon}{2}$ при $t \in [0,T]$, то:
+    $$
+    \underset{Г}{max} \; v(x,t) = \underset{Г}{max} \{u(x,t) - \frac{\varepsilon}{2T}(t - t_0)\} \leq M + \frac{\varepsilon}{2}
+    $$
+    
+    Отсюда следует, что $\exists$ точка $(x_1,t_1) \in Q_T$, в которой $v(x,t)$ достигает максимума. Тогда по необходимому условию максимума дважды дифференцируемой функции получаем:
+    \begin{equation}
+        \label{eq2}
+        \begin{cases}
+        v_t(x_1,t_1) \geq 0 \\
+        v_{xx}(x_1,t_1) \leq 0
+        \end{cases}
+    \end{equation}
+    
+    Продифференцируем (\ref{eq1}) отдельно один раз по $t$ и отдельно два раза по $x$. Получим:
+    \begin{equation}
+        \label{eq3}
+        v_t(x,t) = u_t(x,t) - \frac{\varepsilon}{2T}
+    \end{equation}
+    $$
+    v_{xx}(x,t) = u_{xx}(x,t)
+    $$
+    
+    Из полученных равенств и системы (\ref{eq2}) следует, что:
+    $$
+    u_t(x_1,t_1) = v_T(x_1,t_1) + \frac{\varepsilon}{2T} > 0 \geq a^2v_{xx}(x_1,t_1) = a^2u_{xx}(x_1,t_1)
+    $$
+    
+    \textit{(В (\ref{eq3}) перенесли $\frac{\varepsilon}{2T} > 0$. Из (\ref{eq2}) следует, что $v_t(x_1,t_1) \geq v_{xx}(x_1,t_1)$. Во все выражения подставили $(x_1,t_1)$. Домножили на $a^2 > 0$ производные по $x$, что не влияет на знак выражения.)}
+    
+    Получим $u_t(x_1,t_1) > a^2u_{xx}(x_1,t_1)$, что противоречит уравнению теплопроводности. Первое утверждение доказано.
+    \par
+    Второе утверждение доказывается аналогично заменой $\omega(x,t) = -u(x,t)$ и рассмотрением первого утверждения для $\omega(x,t)$
+    \par
+    Теорема доказана.
+    
+    
+    
+    \section{Общее решение уравнения Лапласа в полярных координатах.}
+    
+\end{document}
