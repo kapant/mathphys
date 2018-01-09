@@ -1,5 +1,4 @@
-\documentclass[a6paper]{article}
-\usepackage[margin=3mm]{geometry}
+\documentclass[11pt,a4paper]{article}
 \usepackage[utf8x]{inputenc}
 \usepackage{mathtext}
 \usepackage[T1]{fontenc}
@@ -9,14 +8,13 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
-\usepackage{indentfirst}
+\usepackage{fullpage}
+\usepackage[left=0.1cm,right=0.1cm,top=0.1cm,bottom=0.1cm,bindingoffset=0cm]{geometry}
+\usepackage{amsthm}
 
-
-\title{Билет 10}
-\date{}
 
 \begin{document}
-    \maketitle
+    \LARGE Билет 10. Принцип максимума для уравнения теплопроводности. Теоремы единственности и устойчивости для смешанной задачи для уравнения теплопроводности. Общее решение уравнения Лапласа в полярных координатах.
     \section{Принцип максимума для уравнения теплопроводности. Теоремы единственности и устойчивости для смешанной задачи для уравнения теплопроводности.}
     \subsection{Принцип максимума для уравнения теплопроводности.}
     
@@ -30,7 +28,7 @@
     \underset{\overline{Q_T}}{min} \; u(x,t) = \underset{Г}{min} \; u(x,t)
     $$
     
-    \textit{Доказательство.} Сначала докажем утверждение для $max$. Предположим противное: пусть $\underset{Г}{max} \; u(x,t) = M$ и $\exists$ точка $(x_0,t_0) \in Q_T$ такая, что $u(x_0,t_0)= M + \varepsilon, \; \varepsilon > 0$.
+    \textit{Доказательство.} $\triangleleft$ Сначала докажем утверждение для $max$. Предположим противное: пусть $\underset{Г}{max} \; u(x,t) = M$ и $\exists$ точка $(x_0,t_0) \in Q_T$ такая, что $u(x_0,t_0)= M + \varepsilon, \; \varepsilon > 0$.
     \par
     Тогда введем $v(x,t)$:
     \begin{equation}
@@ -40,15 +38,15 @@
     
     Очевидно, что $v(x_0,t_0) = u(x_0,t_0) = M + \varepsilon$. Так как $|\frac{\varepsilon}{2T}(t - t_0)| \leq \frac{\varepsilon}{2}$ при $t \in [0,T]$, то:
     $$
-    \underset{Г}{max} \; v(x,t) = \underset{Г}{max} \{u(x,t) - \frac{\varepsilon}{2T}(t - t_0)\} \leq M + \frac{\varepsilon}{2}
+    \underset{Г}{max} \; v(x,t) = \underset{Г}{max} \{u(x,t) - \frac{\varepsilon}{2T}(t - t_0)\} \leqslant M + \frac{\varepsilon}{2}
     $$
     
     Отсюда следует, что $\exists$ точка $(x_1,t_1) \in Q_T$, в которой $v(x,t)$ достигает максимума. Тогда по необходимому условию максимума дважды дифференцируемой функции получаем:
     \begin{equation}
         \label{eq2}
         \begin{cases}
-        v_t(x_1,t_1) \geq 0 \\
-        v_{xx}(x_1,t_1) \leq 0
+        v_t(x_1,t_1) \geqslant 0 \\
+        v_{xx}(x_1,t_1) \leqslant 0
         \end{cases}
     \end{equation}
     
@@ -63,7 +61,7 @@
     
     Из полученных равенств и системы (\ref{eq2}) следует, что:
     $$
-    u_t(x_1,t_1) = v_T(x_1,t_1) + \frac{\varepsilon}{2T} > 0 \geq a^2v_{xx}(x_1,t_1) = a^2u_{xx}(x_1,t_1)
+    u_t(x_1,t_1) = v_T(x_1,t_1) + \frac{\varepsilon}{2T} > 0 \geqslant a^2v_{xx}(x_1,t_1) = a^2u_{xx}(x_1,t_1)
     $$
     
     \textit{(В (\ref{eq3}) перенесли $\frac{\varepsilon}{2T} > 0$. Из (\ref{eq2}) следует, что $v_t(x_1,t_1) \geq v_{xx}(x_1,t_1)$. Во все выражения подставили $(x_1,t_1)$. Домножили на $a^2 > 0$ производные по $x$, что не влияет на знак выражения.)}
@@ -72,10 +70,87 @@
     \par
     Второе утверждение доказывается аналогично заменой $\omega(x,t) = -u(x,t)$ и рассмотрением первого утверждения для $\omega(x,t)$
     \par
-    Теорема доказана.
+    Теорема доказана. $\triangleright$
     
+    \subsection{Теорема единственности решения смешанной задачи для уравнения теплопроводности.}
+    Смешанная задача для уравнения теплопроводности:
+    \begin{equation}
+      \label{eq4}
+      \begin{cases}
+          u_t(x,t) = a^2u_{xx}(x,t), \; 0 \geqslant x \leqslant l, 0 < t \leqslant T \\
+          u(0, t) = \mu_1(t) \\
+          u(l, t) = \mu_2(t) \\
+          u(x, 0) = \phi(x)
+      \end{cases}
+    \end{equation}
+   
+    $\forall T > 0$. В общем случае $T = +\infty $
     
+    \textbf{Теорема.} \textit{(единственности)} Пусть $u_1(x,t),u_2(x,t)$ являются решениями одной и той же задачи (\ref{eq4}) и $u_i(x,t) \in C[\overline{Q_T}]$ и $(u_i)_{t}^{'}(x,t),(u_i)_{xx}^{''}(x,t) \in C[Q_T], \; \forall T > 0, i = 1,2$. Тогда $u_1(x,t) \equiv u_2(x,t)$.
+    \par
+    \textit{Доказательство.} $\triangleleft$ Введем функцию $v(x,t) = u_1(x,t) - u_2(x,t)$ такую, что $v(x,t) \in C[\overline{Q_T}], v_t, v_{xx} \in C[Q_t]$. Она является решением краевой задачи:
+    $$
+    \begin{cases}
+        v_t(x,t) = a^2u_{xx}(x,t), \; 0 \geqslant x \leqslant l, 0 < t \leqslant T \\
+        v(0, t) = 0 \\
+        v(l, t) = 0 \\
+        v(x, 0) = 0
+    \end{cases}
+    $$
+    
+    Для $v(x,t)$ выполнены все условия принципа максимума. Тогда:
+    $$
+    \begin{cases}
+        \underset{\overline{Q_T}}{max} \; v(x,t) = \underset{Г}{max} \; v(x,t) = 0 \\
+        \underset{\overline{Q_T}}{min} \; v(x,t) = \underset{Г}{min} \; v(x,t) = 0
+    \end{cases}
+    \Rightarrow v(x,t) \equiv 0 \Rightarrow u_1(x,t) \equiv u_2(x,t)
+    $$
+    
+    Теорема доказана. $\triangleright$
+    
+    \subsection{Теорема устойчивости решения смешанной задачи для уравнения теплопроводности}
+    \textbf{Лемма.} Если $u_1(x,t),u_2(x,t)$ такие, что $u_i(x,t) \in C[\overline{Q_T}]$ и $(u_i)_{t}^{'}(x,t),(u_i)_{xx}^{''}(x,t) \in C[Q_T], \; \forall T > 0, i = 1,2$ и являются решениями разных задач (\ref{eq4}), причем все граничные условия задачи для $u_1(x,t)$ больше или равны граничным условиям задачи для $u_2(x,t)$, то $u_1(x,t) \geqslant u_2(x,t)$ в $\overline{Q_T}$.
+    
+    \textit{Доказательство.} $\triangleleft$ Введем функцию $v(x,t) = u_1(x,t) - u_2(x,t)$ такую, что $v(x,t) \in C[\overline{Q_T}], v_t, v_{xx} \in C[Q_t]$. Она является решением краевой задачи:
+    $$
+    \begin{cases}
+        v_t(x,t) = a^2u_{xx}(x,t), \; 0 \geqslant x \leqslant l, 0 < t \leqslant T \\
+        v(0, t) \geqslant 0 \\
+        v(l, t) \geqslant 0 \\
+        v(x, 0) \geqslant 0
+    \end{cases}
+    $$
+    
+    Для $v(x,t)$ выполнены все условия принципа максимума. Тогда:
+    
+    $$
+    \underset{\overline{Q_T}}{min} \; v(x,t) = \underset{Г}{min} \; v(x,t) \geqslant 0 \Rightarrow u_1(x,t) \geqslant u_2(x,t), \; \forall (x,y) \in \overline{Q_T}
+    $$
+    
+    Лемма доказана. $\triangleright$
+    \par
+    \textbf{Теорема.} \textit{(устойчивости)} Если $u_1(x,t),u_2(x,t)$ такие, что $u_i(x,t) \in C[\overline{Q_T}]$ и $(u_i)_{t}^{'}(x,t),(u_i)_{xx}^{''}(x,t) \in C[Q_T], \; \forall T > 0, i = 1,2$ и являются решениями разных задач (\ref{eq4}), причем все граничные условия двух задач различаются по модулю $< \varepsilon$ ($|u_1(0,t) - u_2(0,t)| \leqslant \varepsilon$ и так для каждого граничного условия), то 
+    $$
+    \underset{\overline{Q_T}}{max} \; |u_1(x,t) - u_2(x,t)| \leqslant \varepsilon
+    $$
+    
+    \textit{Доказательство.} $\triangleleft$ Введем функцию $v(x,t) = u_1(x,t) - u_2(x,t)$ такую, что $v(x,t) \in C[\overline{Q_T}], v_t, v_{xx} \in C[Q_t]$. Тогда $v_t(x,t) = a^2v_{xx}(x,t)$ и для нее выполняются все условия принципа максимума. Получим:
+    $$
+    \underset{\overline{Г}}{max} \; |v(x,t)| \leqslant \varepsilon
+    $$
+    
+    То есть $-\varepsilon \geqslant v(x,t) \leqslant \varepsilon$ на Г (границе $Q_T$). Применив лемму к парам функций ($-\varepsilon, v(x,t)$) и ($v(x,t), \varepsilon$), получим:
+    $$
+    -\varepsilon \geqslant u_1(x,t) - u_2(x,t) \leqslant \varepsilon \; \forall (x,y) \in \overline{Q_T}
+    $$
+    Теорема доказана. $\triangleright$
+    
+    Полученное утверждение означает, что из близости исходных данных следует близость полученных
+решений.
     
     \section{Общее решение уравнения Лапласа в полярных координатах.}
+    
+    
     
 \end{document}
