@@ -77,7 +77,7 @@
     \begin{equation}
       \label{eq4}
       \begin{cases}
-          u_t(x,t) = a^2u_{xx}(x,t), \; 0 \geqslant x \leqslant l, 0 < t \leqslant T \\
+          u_t(x,t) = a^2u_{xx}(x,t), \; 0 \leqslant x \leqslant l, 0 < t \leqslant T \\
           u(0, t) = \mu_1(t) \\
           u(l, t) = \mu_2(t) \\
           u(x, 0) = \phi(x)
@@ -91,7 +91,7 @@
     \textit{Доказательство.} $\triangleleft$ Введем функцию $v(x,t) = u_1(x,t) - u_2(x,t)$ такую, что $v(x,t) \in C[\overline{Q_T}], v_t, v_{xx} \in C[Q_t]$. Она является решением краевой задачи:
     $$
     \begin{cases}
-        v_t(x,t) = a^2u_{xx}(x,t), \; 0 \geqslant x \leqslant l, 0 < t \leqslant T \\
+        v_t(x,t) = a^2u_{xx}(x,t), \; 0 \leqslant x \leqslant l, 0 < t \leqslant T \\
         v(0, t) = 0 \\
         v(l, t) = 0 \\
         v(x, 0) = 0
@@ -115,7 +115,7 @@
     \textit{Доказательство.} $\triangleleft$ Введем функцию $v(x,t) = u_1(x,t) - u_2(x,t)$ такую, что $v(x,t) \in C[\overline{Q_T}], v_t, v_{xx} \in C[Q_t]$. Она является решением краевой задачи:
     $$
     \begin{cases}
-        v_t(x,t) = a^2u_{xx}(x,t), \; 0 \geqslant x \leqslant l, 0 < t \leqslant T \\
+        v_t(x,t) = a^2u_{xx}(x,t), \; 0 \leqslant x \leqslant l, 0 < t \leqslant T \\
         v(0, t) \geqslant 0 \\
         v(l, t) \geqslant 0 \\
         v(x, 0) \geqslant 0
@@ -159,7 +159,7 @@
     $$
     Решаем два уравнения для $R_n(r)$ и $\Phi_n(\phi)$. Не забыть про $n = 0$. В итоге получим общее решение для $u(r, \phi)$:
     $$
-    u(r, \phi) = a_0 + b_0 \, ln\:r + \sum\limits_{n=1}^{\infty}r^n(a_n \, cos \: n \phi)
+    u(r, \phi) = a_0 + b_0 \, ln\:r + \sum\limits_{n=1}^{\infty}r^n(a_n \, cos \: n \phi + b_n \, sin \: n \phi) + \sum\limits_{n=1}^{\infty}\frac{1}{r^n}(c_n \, cos \: n \phi + d_n \, sin \: n \phi)
     $$
     
 \end{document}
